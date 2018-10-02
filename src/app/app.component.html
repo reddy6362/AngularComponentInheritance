@@ -1,0 +1,32 @@
+<h1>Angular Component Inheritance and Template Swapping</h1>
+
+<button (click)="mode = 1" > Text Mode</button>
+<button (click)="mode = 2" > PECS Only</button>
+<button (click)="mode = 3" > Text + PECS Mode</button>
+<!-- <button (click)="mode = 4" > Shuffle Options</button> -->
+
+<p> Selected Answer is : {{selectedOption}}</p>
+
+<!-- Mode 1 for Text only mode -->
+<app-text
+  *ngIf= "mode === 1" 
+  [options]="options"
+  (select)="selectAnswer($event)"></app-text>
+
+<!-- Mode 2 for PECs only mode -->
+<app-pecsonly
+    *ngIf= "mode === 2"
+    [options]="options"
+    (select)="selectAnswer($event)"></app-pecsonly>
+  
+<!-- Mode 3 for PECs and Text only mode -->
+<app-pecs-text
+    *ngIf= "mode === 3"
+    [options]="options"
+    (select)="selectAnswer($event)"></app-pecs-text>
+
+<!-- Mode 4 for shuffle mode
+<app-pecs-text
+    *ngIf= "mode === 4"
+    [options]="options"
+    (select)="selectAnswer($event)"></app-pecs-text> -->

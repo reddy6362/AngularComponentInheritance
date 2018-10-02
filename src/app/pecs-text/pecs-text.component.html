@@ -1,0 +1,7 @@
+<h1>{{heading}}</h1>
+<ul>
+  <li *ngFor="let option of options">
+      <img  class={{option}} (click)="selectAnswer(option)">
+      {{option}}
+    </li>
+</ul>
